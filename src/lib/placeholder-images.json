@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "1",
+      "description": "A vibrant and fresh salad.",
+      "imageUrl": "https://images.unsplash.com/photo-1549248220-5811dc32cd5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcmVzaCUyMHNhbGFkfGVufDB8fHx8MTc2MzIyNDI1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh salad"
+    },
+    {
+      "id": "2",
+      "description": "A hearty vegetable soup.",
+      "imageUrl": "https://images.unsplash.com/photo-1677889173479-c8a0ab15ae18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx2ZWdldGFibGUlMjBzb3VwfGVufDB8fHx8MTc2MzIyMDQ3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vegetable soup"
+    },
+    {
+      "id": "3",
+      "description": "Grilled chicken with asparagus.",
+      "imageUrl": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxncmlsbGVkJTIwY2hpY2tlbnxlbnwwfHx8fDE3NjMyMjUxNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grilled chicken"
+    },
+    {
+      "id": "4",
+      "description": "A stack of fluffy pancakes.",
+      "imageUrl": "https://images.unsplash.com/photo-1610015644714-60076be69b30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwYW5jYWtlcyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjMzMTQwNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pancakes breakfast"
+    },
+    {
+      "id": "5",
+      "description": "A rich and creamy pasta dish.",
+      "imageUrl": "https://images.unsplash.com/photo-1722938687772-62a0dbfacc25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGFzdGElMjBkaXNofGVufDB8fHx8MTc2MzIwNzM1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pasta dish"
+    },
+    {
+      "id": "6",
+      "description": "A delicious vegan curry.",
+      "imageUrl": "https://images.unsplash.com/photo-1560260330-727f7f5c0277?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx2ZWdhbiUyMGN1cnJ5fGVufDB8fHx8MTc2MzIwNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vegan curry"
+    },
+    {
+      "id": "7",
+      "description": "Freshly baked bread.",
+      "imageUrl": "https://images.unsplash.com/photo-1654524086749-aa2703ab0784?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWtlZCUyMGJyZWFkfGVufDB8fHx8MTc2MzMxMzI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "baked bread"
+    },
+    {
+      "id": "8",
+      "description": "A colorful fruit smoothie.",
+      "imageUrl": "https://images.unsplash.com/photo-1655992590262-aeadeef445b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmcnVpdCUyMHNtb290aGllfGVufDB8fHx8MTc2MzI1NjkwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fruit smoothie"
+    }
+  ]
 }
