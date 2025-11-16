@@ -1,6 +1,6 @@
 'use server';
 
-import { suggestRecipes, type SuggestRecipesOutput } from '@/ai/flows/quick-start-with-prompt';
+import { suggestRecipes, type SuggestRecipesInput } from '@/ai/flows/quick-start-with-prompt';
 import type { Recipe } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -46,14 +46,26 @@ export async function getRecipes(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const prompt = formData.get('prompt') as string;
+  const rawFormData = {
+    dishType: formData.get('dishType') as string | null,
+    dietaryRestriction: formData.get('dietaryRestriction') as string | null,
+    cuisine: formData.get('cuisine') as string | null,
+    skillLevel: formData.get('skillLevel') as string | null,
+    cookTime: formData.get('cookTime') as string | null,
+    prompt: formData.get('prompt') as string | null,
+  };
 
-  if (!prompt || prompt.trim().length === 0) {
-    return { message: 'Please enter your dietary preferences.', isError: true, recipes: prevState.recipes };
+  const input: SuggestRecipesInput = {
+    ...rawFormData,
+  }
+
+  const promptValues = Object.values(rawFormData).filter(value => value && value.trim() !== '' && value !== 'any' && value !== 'none');
+  if (promptValues.length === 0) {
+    return { message: 'Please provide some recipe preferences.', isError: true, recipes: prevState.recipes };
   }
 
   try {
-    const result: SuggestRecipesOutput = await suggestRecipes(prompt);
+    const result = await suggestRecipes(input);
     
     if (!result.recipes || result.recipes.length === 0) {
       return { message: 'No recipes found for your preferences. Try being more specific!', recipes: [] };

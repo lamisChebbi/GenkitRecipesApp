@@ -2,12 +2,21 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { getRecipes, type FormState } from '@/app/actions';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { RecipeCard } from '@/components/recipe-card';
 import { Loader2 } from 'lucide-react';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const initialState: FormState = {
   message: '',
@@ -62,13 +71,77 @@ export function RecipeGenerator() {
           </div>
           <div className="mx-auto mt-8 max-w-2xl">
             <form action={formAction} className="space-y-4">
-              <Textarea
-                name="prompt"
-                placeholder="e.g., vegetarian, gluten-free, low-carb snacks..."
-                className="min-h-[100px] resize-none text-base"
-                required
-              />
-              <div className="flex justify-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="dishType">Dish Type</Label>
+                  <Select name="dishType" defaultValue="any">
+                    <SelectTrigger id="dishType">
+                      <SelectValue placeholder="Select dish type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any</SelectItem>
+                      <SelectItem value="breakfast">Breakfast</SelectItem>
+                      <SelectItem value="lunch">Lunch</SelectItem>
+                      <SelectItem value="dinner">Dinner</SelectItem>
+                      <SelectItem value="snack">Snack</SelectItem>
+                      <SelectItem value="dessert">Dessert</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="dietaryRestriction">Dietary Restriction</Label>
+                  <Select name="dietaryRestriction" defaultValue="none">
+                    <SelectTrigger id="dietaryRestriction">
+                      <SelectValue placeholder="Select restriction" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">None</SelectItem>
+                      <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                      <SelectItem value="vegan">Vegan</SelectItem>
+                      <SelectItem value="gluten-free">Gluten-Free</SelectItem>
+                      <SelectItem value="dairy-free">Dairy-Free</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                 <div className="space-y-2">
+                    <Label htmlFor="cuisine">Cuisine</Label>
+                    <Input id="cuisine" name="cuisine" placeholder="e.g., Italian, Mexican" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="skillLevel">Skill Level</Label>
+                    <Select name="skillLevel" defaultValue="any">
+                      <SelectTrigger id="skillLevel">
+                        <SelectValue placeholder="Select skill level" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="any">Any</SelectItem>
+                        <SelectItem value="beginner">Beginner</SelectItem>
+                        <SelectItem value="intermediate">Intermediate</SelectItem>
+                        <SelectItem value="advanced">Advanced</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+              </div>
+
+               <div className="space-y-2">
+                  <Label htmlFor="cookTime">Max Cooking Time (in minutes)</Label>
+                  <Input id="cookTime" name="cookTime" type="text" placeholder="e.g., 30" />
+                </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="prompt">Specific Prompt (optional)</Label>
+                <Textarea
+                  id="prompt"
+                  name="prompt"
+                  placeholder="e.g., something with chicken and pasta, for a special occasion..."
+                  className="min-h-[100px] resize-none text-base"
+                />
+              </div>
+
+              <div className="flex justify-center pt-4">
                  <SubmitButton />
               </div>
             </form>
