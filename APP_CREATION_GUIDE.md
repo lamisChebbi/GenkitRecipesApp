@@ -46,7 +46,7 @@ The "backend" of this application is not a traditional API server. Instead, we u
 
 ### Step 1: Configure Genkit
 
-In `src/ai/genkit.ts`, we initialize Genkit. This is a one-time setup that tells our app which AI model to use.
+In `src/ai/genkit.ts`, we initialize Genkit. This is a one-time setup that tells our app which AI model to use **by default**.
 
 ```typescript
 // src/ai/genkit.ts
@@ -58,7 +58,7 @@ export const ai = genkit({
   model: 'googleai/gemini-2.5-flash',
 });
 ```
-This configures Genkit to use the Google AI provider and sets `gemini-2.5-flash` as the default model for our AI tasks.
+This configures Genkit to use the Google AI provider and sets `gemini-2.5-flash` as the default model for any AI tasks that don't explicitly specify one.
 
 ### Step 2: Define the AI Logic with a "Flow"
 
@@ -90,6 +90,7 @@ Next, we define a prompt using `ai.definePrompt`. This is a template that instru
 ```typescript
 const prompt = ai.definePrompt({
   name: 'suggestRecipesPrompt',
+  model: 'googleai/gemini-2.5-flash', // Explicitly define the model
   input: {schema: SuggestRecipesInputSchema},
   output: {schema: SuggestRecipesOutputSchema},
   prompt: `You are a recipe suggestion AI. Given the following criteria, generate a list of recipe ideas.
@@ -101,6 +102,7 @@ const prompt = ai.definePrompt({
 Please provide a list of recipe names that match these criteria.`,
 });
 ```
+While Genkit uses the default model from the initial configuration, it's good practice to explicitly state the model in the prompt definition for clarity.
 
 #### c. Create the Genkit Flow
 

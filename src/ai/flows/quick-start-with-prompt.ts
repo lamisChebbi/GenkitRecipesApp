@@ -32,6 +32,7 @@ export async function suggestRecipes(input: SuggestRecipesInput): Promise<Sugges
 
 const prompt = ai.definePrompt({
   name: 'suggestRecipesPrompt',
+  model: 'googleai/gemini-2.5-flash',
   input: {schema: SuggestRecipesInputSchema},
   output: {schema: SuggestRecipesOutputSchema},
   prompt: `You are a recipe suggestion AI. Given the following criteria, generate a list of recipe ideas.
